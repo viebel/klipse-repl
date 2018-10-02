@@ -11,6 +11,9 @@
     (line-reader/create
      (rebel-service/create))
     (clojure-main/repl
-     :init (fn [] (println "klipse-repl"))
+     :init (fn []
+             (println "Welcome to Klipse REPL (Read-Eval-Print Loop)")
+             (println "Clojure" (clojure-version))
+             (use 'clojure.repl))
      :eval custom-eval
      :prompt (fn []))))
