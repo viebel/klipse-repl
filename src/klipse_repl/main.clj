@@ -1,6 +1,6 @@
 (ns klipse-repl.main
   (:require
-   [klipse-repl.eval :refer [custom-eval]]
+   [klipse-repl.eval :refer [custom-eval repl-init]]
    [rebel-readline.core :refer [with-readline-in]]
    [rebel-readline.clojure.line-reader :as line-reader]
    [rebel-readline.clojure.service.local :as rebel-service]
@@ -14,6 +14,6 @@
      :init (fn []
              (println "Welcome to Klipse REPL (Read-Eval-Print Loop)")
              (println "Clojure" (clojure-version))
-             (use 'clojure.repl))
+             (repl-init))
      :eval custom-eval
      :prompt (fn []))))

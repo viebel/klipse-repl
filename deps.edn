@@ -1,3 +1,4 @@
 {:paths ["src"]
  :deps {org.clojure/clojure {:mvn/version "1.9.0"}
-        com.bhauman/rebel-readline {:mvn/version "0.1.4"}}}
+        com.bhauman/rebel-readline {:mvn/version "0.1.4"}
+        org.clojure/tools.cli {:mvn/version "0.4.1"}}}
