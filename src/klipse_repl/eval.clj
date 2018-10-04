@@ -1,12 +1,14 @@
 (ns klipse-repl.eval
-  (:require [clojure.test :refer [with-test is]]))
+  (:require
+   [clojure.test :refer [with-test is]]
+   [clojure.main :refer [repl-requires]]))
 
 
 (defn repl-init
   "Initialize repl in user namespace and make standard repl requires."
   []
   (in-ns 'user)
-  (apply require clojure-main/repl-requires))
+  (apply require repl-requires))
 
 (with-test
   (defn custom-eval [x]
