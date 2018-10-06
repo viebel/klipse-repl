@@ -1,4 +1,6 @@
 
+[![Clojars Project](https://img.shields.io/clojars/v/viebel/klipse-repl.svg)](https://clojars.org/viebel/klipse-repl)
+
 # Rationale
 
 Provide a REPL that is super-friendly to beginners without bothering them with details that are hard to grasp when you are a Clojure beginner.
