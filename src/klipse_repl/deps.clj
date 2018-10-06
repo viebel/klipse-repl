@@ -1,5 +1,7 @@
 (ns klipse-repl.deps
+  (:refer-clojure :exclude (add-classpath))
   (:require [clojure.java.io :as io]
+            [gadjett.core :refer [dbg dbgdef]]
             [clojure.tools.deps.alpha.reader :as reader]
             [klipse-repl.classpath :refer [add-classpath]]
             [clojure.tools.deps.alpha :as deps :refer [resolve-deps make-classpath]]))
@@ -48,8 +50,7 @@
   (update-classpath {:config-files (deps-files)}))
 
 (comment
-  (add-deps '{viebel/gadjett {:mvn/version "0.5.2"}})
+  (add-deps '{viebel/gadjett {:mvn/version "0.5.4"}})
+  (require 'gadjett.collections)
   (require 'tupelo.core)
-  (str (io/file "/tmp/aa"))
-  (refresh-classpath)
-  )
+  (refresh-classpath))
