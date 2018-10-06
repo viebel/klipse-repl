@@ -63,11 +63,11 @@ In order to enable the features listed in this section, you need to pass the `--
 
 ### refresh-deps
 
-add a dependency in your global or local `deps.den` and call `(refresh-deps)`
+add dependencies in your global or local `deps.edn` and call `(refresh-deps)`
 
 ### add-deps 
 
-add one or more dependcies on the fly:
+add one or more dependencies on the fly - following `deps.edn` format:
 
 ~~~clojure
 user=> (add-deps '{tupelo {:mvn/version "0.9.103"}})
@@ -103,9 +103,9 @@ Be aware that the state of the REPL is shared between the host and all its remot
 
 ## Autocompletion, indentation, coloring etc...
 
-All of the great features of the awesome [rebel-readline](https://github.com/bhauman/rebel-readline) are available in this REPL.
+All of the great features of Bruce Hauman's [rebel-readline](https://github.com/bhauman/rebel-readline) are available in this REPL for the simple reason that this REPL is built on top of [rebel-readline](https://github.com/bhauman/rebel-readline).
 
 
 # Credits
 
-This REPL runs on top of the awesome [rebel-readline](https://github.com/bhauman/rebel-readline).
+This REPL runs on top of the awesome [rebel-readline](https://github.com/bhauman/rebel-readline) by Bruce Hauman.
