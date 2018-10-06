@@ -61,9 +61,9 @@ The features of this section can be disabled by the `--no-easy-defs` flag.
 
 In order to enable the features listed in this section, you need to pass the `--cool-forms flag`.
 
-### refresh-deps
+### refresh-classpath
 
-add dependencies in your global or local `deps.edn` and call `(refresh-deps)`
+add dependencies in your global or local `deps.edn` and call `(refresh-classpath)`
 
 ### add-deps 
 
