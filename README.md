@@ -19,7 +19,7 @@ If you want to try this really quickly
 and then invoke this:
 
 ```shell
-clojure -Sdeps "{:deps {viebel/klipse-repl {:mvn/version \"0.1.1\"}}}" -m klipse-repl.main
+clojure -Sdeps "{:deps {viebel/klipse-repl {:mvn/version \"0.1.2\"}}}" -m klipse-repl.main
 ```
 
 That should start a Clojure REPL that takes its input from the Rebel readline editor.
@@ -32,7 +32,7 @@ If you happen to like it, you will probably find it more convenient to specify a
 ```clojure
 {
  ...
- :aliases {:rebel {:extra-deps {viebel/klipse-repl {:mvn/version "0.1.1"}}
+ :aliases {:rebel {:extra-deps {viebel/klipse-repl {:mvn/version "0.1.2"}}
                    :main-opts  ["-m" "klipse-repl.main"]}}
 }
 ```
@@ -99,7 +99,12 @@ user=> a
 1
 ~~~
 
-The state of the REPL is share between the host and all its remote connections.
+Be aware that the state of the REPL is shared between the host and all its remote connections.
+
+## Autocompletion, indentation, coloring etc...
+
+All of the great features of the awesome [rebel-readline](https://github.com/bhauman/rebel-readline) are available in this REPL.
+
 
 # Credits
 
