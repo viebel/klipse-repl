@@ -11,6 +11,17 @@ For instance,
 
 # Run Locally
 
-~~~clojure
+~~~bash
 clojure -m klipse-repl.main
+~~~
+
+# Features
+
+
+
+# Deploy
+
+~~~bash
+clojure -Spom
+mvn deploy
 ~~~
