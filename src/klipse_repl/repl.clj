@@ -13,8 +13,9 @@
                                 :name 'socket-repl
                                 :accept 'klipse-repl.basic/create-repl}))
 
-(defn create-repl [{:keys [port]}]
-  (launch-socket-repl-server port)
+(defn create-repl [{:keys [port easy-defs] :as opts}]
+  (when port
+    (launch-socket-repl-server port))
   (with-readline-in
     (line-reader/create
      (rebel-service/create))
@@ -22,6 +23,7 @@
      :init (fn []
              (println "Welcome to Klipse REPL (Read-Eval-Print Loop)")
              (println "Clojure" (clojure-version))
-             (repl-init))
-     :eval custom-eval
-     :prompt (fn []))))
+             (repl-init opts))
+     :eval (if easy-defs custom-eval eval)
+     :prompt (fn [])))
+  )

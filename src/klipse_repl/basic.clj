@@ -1,6 +1,5 @@
 (ns klipse-repl.basic
   (:require
-   [klipse-repl.eval :refer [custom-eval repl-init]]
    [clojure.main :as clojure-main]))
 
 (defn print-welcome-message! []
@@ -9,10 +8,8 @@
 
 (defn create-repl []
   (clojure-main/repl
-   :eval custom-eval
    :init (fn []
-           (print-welcome-message!)
-           (repl-init))))
+           (print-welcome-message!))))
 
 (defn -main []
   (create-repl)) 

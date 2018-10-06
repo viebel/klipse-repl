@@ -8,9 +8,9 @@
     <url>https://clojars.org/repo</url>
   </repository>
 </distributionManagement>
-  <groupId>klipse-repl</groupId>
+  <groupId>viebel</groupId>
   <artifactId>klipse-repl</artifactId>
-  <version>0.1.0</version>
+  <version>0.1.2</version>
   <name>klipse-repl</name>
   <dependencies>
     <dependency>

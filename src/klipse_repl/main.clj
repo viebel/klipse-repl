@@ -1,30 +1,26 @@
 (ns klipse-repl.main
   (:require
+   [gadjett.core :refer [dbg]]
    [klipse-repl.repl :refer [create-repl]]
    [clojure.string :as string]
    [clojure.tools.cli :refer [parse-opts]]))
 
 (def cli-options
   [["-h" "--help"]
+   [nil "--cool-forms"]
+   [nil "--[no-]easy-defs"
+;    :parse-fn #(Boolean/parseBoolean %)
+    :default true]
    ["-p" "--port PORT" "Port Number for the socket repl"
-    :default 5555
     :parse-fn #(Integer/parseInt %)
     :validate [#(< 0 % 0x10000) "Must be a number between 0 and 65536"]]])
 
 (defn usage [options-summary]
-  (->> ["This is my program. There are many like it, but this one is mine."
-        ""
-        "Usage: program-name [options] action"
+  (->> ["klipse-repl: A beginner friendly REPL"
+        "Usage: clj -A:klipse-repl [options]"
         ""
         "Options:"
-        options-summary
-        ""
-        "Actions:"
-        "  start    Start a new server"
-        "  stop     Stop an existing server"
-        "  status   Print a server's status"
-        ""
-        "Please refer to the manual page for more information."]
+        options-summary]
        (string/join \newline)))
 
 (defn error-msg [errors]

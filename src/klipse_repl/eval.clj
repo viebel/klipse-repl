@@ -6,12 +6,16 @@
 
 (defn repl-init
   "Initialize repl in user namespace and make standard repl requires."
-  []
+  [{:keys [cool-forms]}]
   (in-ns 'user)
   (apply require repl-requires)
-  (require '[gadjett.core :refer [dbg dbgdef]])
-  (require '[klipse-repl.deps :refer [refresh-classpath add-deps]])
-  (require '[klipse-repl.classpath :refer [classpath]]))
+  (if cool-forms
+    (do
+      (require '[gadjett.core :refer [dbg dbgdef]])
+      (require '[klipse-repl.deps :refer [refresh-classpath add-deps]])
+      (require '[klipse-repl.classpath :refer [classpath]])
+      (println "some cool forms are available in this REPL"))
+    (println "cool forms are disabled. Enable them with --cool-forms")))
 
 (with-test
   (defn custom-eval [x]
