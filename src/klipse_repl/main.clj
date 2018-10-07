@@ -8,8 +8,9 @@
 (def cli-options
   [["-h" "--help"]
    [nil "--cool-forms"]
-   [nil "--[no-]easy-defs"
-;    :parse-fn #(Boolean/parseBoolean %)
+   [nil "--[no-]rebel" "enable/disable rebel readline"
+    :default true]
+   [nil "--[no-]easy-defs" "enable/disable easy def feedback"
     :default true]
    ["-p" "--port PORT" "Port Number for the socket repl"
     :parse-fn #(Integer/parseInt %)

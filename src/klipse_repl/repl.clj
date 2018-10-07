@@ -1,5 +1,7 @@
 (ns klipse-repl.repl
   (:require
+   [gadjett.collections :as gadjett :refer [apply-with-map]]
+   [gadjett.core :refer [dbg]]
    [clojure.core.server :as clojure-server]
    [klipse-repl.eval :refer [custom-eval repl-init]]
    [rebel-readline.core :refer [with-readline-in]]
@@ -13,17 +15,21 @@
                                 :name 'socket-repl
                                 :accept 'klipse-repl.basic/create-repl}))
 
-(defn create-repl [{:keys [port easy-defs] :as opts}]
+(defn create-repl* [{:keys [easy-defs] :as opts} prompt?]
+  (let [args {:init (fn []
+                      (println "Welcome to Klipse REPL (Read-Eval-Print Loop)")
+                      (println "Clojure" (clojure-version))
+                      (repl-init opts))
+              :eval (if easy-defs custom-eval eval)
+              :prompt (when-not prompt? (fn []))}]
+    (apply-with-map clojure-main/repl args)))
+
+(defn create-repl [{:keys [port rebel] :as opts}]
   (when port
     (launch-socket-repl-server port))
-  (with-readline-in
-    (line-reader/create
-     (rebel-service/create))
-    (clojure-main/repl
-     :init (fn []
-             (println "Welcome to Klipse REPL (Read-Eval-Print Loop)")
-             (println "Clojure" (clojure-version))
-             (repl-init opts))
-     :eval (if easy-defs custom-eval eval)
-     :prompt (fn [])))
-  )
+  (if rebel
+    (with-readline-in
+      (line-reader/create
+       (rebel-service/create))
+      (create-repl* opts false))
+    (create-repl* opts true)))
