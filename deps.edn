@@ -1,6 +1,5 @@
 {:paths ["src"]
- :deps {org.clojure/clojure {:mvn/version "1.9.0"}
-        org.tcrawley/dynapath {:mvn/version "1.0.0"}
+ :deps {org.tcrawley/dynapath {:mvn/version "1.0.0"}
         viebel/gadjett {:mvn/version "0.5.7"}
         com.bhauman/rebel-readline {:mvn/version "0.1.4"}
         org.clojure/tools.deps.alpha {:mvn/version "0.5.452"}
