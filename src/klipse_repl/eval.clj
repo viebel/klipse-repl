@@ -20,10 +20,9 @@
 
 
 (with-test
-  (defn eval-defn [form]
+  (defn eval-defn [[_ func-name :as =form]]
     (try
-      (let [func-name (dbg (second form))
-            func-exists? (dbg (resolve func-name))
+      (let [func-exists? (resolve func-name)
             created-or-updated (if func-exists? "updated" "created")
             res (eval form)]
         (symbol (str "Function " (:name (meta res)) " " created-or-updated)))
