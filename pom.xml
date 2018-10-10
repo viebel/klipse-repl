@@ -10,7 +10,7 @@
 </distributionManagement>
   <groupId>viebel</groupId>
   <artifactId>klipse-repl</artifactId>
-  <version>0.1.2</version>
+  <version>0.1.3</version>
   <name>klipse-repl</name>
   <dependencies>
     <dependency>
