@@ -10,13 +10,15 @@
   [{:keys [cool-forms]}]
   (in-ns 'user)
   (apply require repl-requires)
-  (if cool-forms
-    (do
-      (require '[gadjett.core :refer [dbg dbgdef]])
-      (require '[klipse-repl.deps :refer [refresh-classpath add-deps]])
-      (require '[klipse-repl.classpath :refer [classpath]])
-      (println "some cool forms are available in this REPL"))
-    (println "cool forms are disabled. Enable them with --cool-forms")))
+  (when cool-forms
+    (require '[gadjett.core :refer [dbg dbgdef]])
+    (require '[klipse-repl.deps :refer [refresh-classpath add-deps]])
+    (require '[klipse-repl.classpath :refer [classpath]])
+    (println " Debugging: (dbg an-expression)")
+    (println "            (dbgdef an-expression)")
+    (println " Classpath: (classpath)")
+    (println "            (refresh-classpath)")
+    (println "            (add-deps deps-coordinates)")))
 
 (defn ns-unmap-in-current-ns [name]
   (ns-unmap (symbol (str *ns*)) name))
