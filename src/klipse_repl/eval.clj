@@ -29,9 +29,9 @@
   (defn eval-defn [[_ func-name :as form]]
     (try
       (let [func-exists? (resolve func-name)
-            created-or-updated (if func-exists? "updated" "created")
+            created-or-updated (if func-exists? "Updated" "Created")
             res (eval form)]
-        (symbol (str "Function " (:name (meta res)) " " created-or-updated)))
+        (symbol (str created-or-updated " function " (:name (meta res)) " " (:arglists (meta res)))))
       (catch Exception e
         (println "an exception occured" e)
         (eval form))))

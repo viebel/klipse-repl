@@ -3,14 +3,14 @@
   <groupId>viebel</groupId>
   <artifactId>klipse-repl</artifactId>
   <packaging>jar</packaging>
-  <version>0.1.5</version>
+  <version>0.1.6</version>
   <name>klipse-repl</name>
   <description>Beginners friendly Clojure REPL</description>
   <scm>
     <url>https://github.com/viebel/klipse-repl</url>
     <connection>scm:git:git://github.com/viebel/klipse-repl.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/viebel/klipse-repl.git</developerConnection>
-    <tag>77c2dd41efae88d7da3a92c3aa174a5add14f9f7</tag>
+    <tag>91e03e430b1af1fd5f07b0850b255c49c102715d</tag>
   </scm>
   <build>
     <sourceDirectory>src</sourceDirectory>
