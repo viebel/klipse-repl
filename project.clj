@@ -1,4 +1,4 @@
-(defproject viebel/klipse-repl "0.1.6"
+(defproject viebel/klipse-repl "0.1.7"
   :description "Beginners friendly Clojure REPL"
   :min-lein-version "2.8.1"
   :middleware [lein-tools-deps.plugin/resolve-dependencies-with-deps-edn]
