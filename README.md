@@ -32,8 +32,8 @@ If you happen to like it, you will probably find it more convenient to specify a
 ```clojure
 {
  ...
- :aliases {:rebel {:extra-deps {viebel/klipse-repl {:mvn/version "0.1.5"}}
-                   :main-opts  ["-m" "klipse-repl.main"]}}
+ :aliases {:klipse-repl {:extra-deps {viebel/klipse-repl {:mvn/version "0.1.9"}}
+                         :main-opts  ["-m" "klipse-repl.main"]}}
 }
 ```
 
