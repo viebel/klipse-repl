@@ -3,14 +3,22 @@
   <groupId>viebel</groupId>
   <artifactId>klipse-repl</artifactId>
   <packaging>jar</packaging>
-  <version>0.1.8</version>
+  <version>0.1.9</version>
   <name>klipse-repl</name>
   <description>Beginners friendly Clojure REPL</description>
+  <url>https://github.com/viebel/klipse-repl</url>
+  <licenses>
+    <license>
+      <name>Eclipse Public License</name>
+      <url>http://www.eclipse.org/legal/epl-v10.html</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
   <scm>
     <url>https://github.com/viebel/klipse-repl</url>
     <connection>scm:git:git://github.com/viebel/klipse-repl.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/viebel/klipse-repl.git</developerConnection>
-    <tag>acc560be137d8bab119d8779bcc4aa2d05f96689</tag>
+    <tag>9d488254ec88f763ce8c7aad00bfef2a15399872</tag>
   </scm>
   <build>
     <sourceDirectory>src</sourceDirectory>
@@ -150,7 +158,7 @@
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-databind</artifactId>
-      <version>2.5.5</version>
+      <version>2.9.7</version>
     </dependency>
     <dependency>
       <groupId>org.clojure</groupId>
@@ -307,7 +315,7 @@
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-core</artifactId>
-      <version>2.8.7</version>
+      <version>2.9.7</version>
     </dependency>
     <dependency>
       <groupId>javax.enterprise</groupId>
@@ -381,7 +389,7 @@
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-annotations</artifactId>
-      <version>2.5.0</version>
+      <version>2.9.0</version>
     </dependency>
     <dependency>
       <groupId>javax.annotation</groupId>
