@@ -2,7 +2,7 @@
 # Run Locally
 
 ~~~bash
-clojure -m klipse-repl.main
+clojure -A:dev -m klipse-repl.main
 ~~~
 
 

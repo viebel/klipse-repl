@@ -20,7 +20,8 @@
                       (println "Welcome to Klipse REPL (Read-Eval-Print Loop)")
                       (println "Clojure" (clojure-version))
                       (repl-init opts))
-              :eval (if easy-defs custom-eval eval)
+              :eval (fn [x]
+                      (if easy-defs ((eval `custom-eval) x) (eval x)))
               :prompt (when-not prompt? (fn []))}]
     (apply-with-map clojure-main/repl args)))
 
