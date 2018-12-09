@@ -22,10 +22,15 @@ and then invoke this:
 clojure -Sdeps "{:deps {viebel/klipse-repl {:mvn/version \"0.1.5\"}}}" -m klipse-repl.main
 ```
 
-That should start a Clojure REPL that takes its input from the Rebel readline editor.
+That should start the Klipse REPL and displays a welcome message like this one:
 
-Note that I am using the `clojure` command and not the `clj` command
-because the latter wraps the process with another readline program (rlwrap).
+```shell
+Welcome to Klipse REPL (Read-Eval-Print Loop)
+Clojure 1.10.0-beta3
+user=>
+```
+
+Note that I am using the `clojure` command and not the `clj` command because the latter wraps the process with another readline program (rlwrap) which is not necessary because the history is handled by the Klipse REPL itself.
 
 If you happen to like it, you will probably find it more convenient to specify an alias in your `$HOME/.clojure/deps.edn`
 
@@ -40,11 +45,13 @@ If you happen to like it, you will probably find it more convenient to specify a
 And then run with a simpler:
 
 ```shell
-$ clojure -A:klipse-repl
+> clojure -A:klipse-repl
+Welcome to Klipse REPL (Read-Eval-Print Loop)
+Clojure 1.10.0-beta3
+user=>
 ```
 
-Still, I am using the `clojure` command and not the `clj` command
-because the latter wraps the process with another readline program (rlwrap).
+Note that I am using the `clojure` command and not the `clj` command because the latter wraps the process with another readline program (rlwrap) which is not necessary because the history is handled by the Klipse REPL itself.
 
 
 # Features
@@ -67,8 +74,28 @@ The features of this section can be disabled by the `--no-easy-defs` flag.
 
 ## Autocompletion, indentation, coloring etc...
 
-All of the great features of Bruce Hauman's [rebel-readline](https://github.com/bhauman/rebel-readline) are available in this REPL for the simple reason that this REPL is built on top of [rebel-readline](https://github.com/bhauman/rebel-readline).
+All of the great features of Bruce Hauman's [rebel-readline](https://github.com/bhauman/rebel-readline) are available in this REPL for the simple reason that this REPL is built on top of [rebel-readline](https://github.com/bhauman/rebel-readline). Some of them are:
 
+1. autocompletion when pressing `TAB`
+2. indentation of multi-line expressions
+3. coloring of forms
+
+See [rebel-readline](https://github.com/bhauman/rebel-readline) for the full list of features.
+
+## Link to online documentation
+
+[clojuredocs.org](https://clojuredocs.org/) is one of the best resources for Clojure beginers as it provides examples of usage of the Clojure forms. The `doc` macro proviced by Klipse REPL adds a link to the entry of the form in `clojuredocs`. For instnance look at the last line of the output of `(doc inc)`:
+
+~~~clojure
+user=> (doc inc)
+-------------------------
+clojure.core/inc
+([x])
+  Returns a number one greater than num. Does not auto-promote
+  longs, will throw on overflow. See also: inc'
+-------------------------
+Online doc: https://clojuredocs.org/clojure.core/inc
+~~~
 
 ## Live dependency update
 
