@@ -17,9 +17,15 @@
   (or (clj-config-dir)
       (str (System/getenv "HOME") "/.clojure")))
 
+(defn file-if-exists [path]
+  (let [file (io/file path)]
+    (if (.exists file)
+      file
+      nil)))
+
 (defn deps-files []
-  [(io/file (user-config-directory) "deps.edn")
-   (io/file "deps.edn")])
+  (keep identity [(io/file (user-config-directory) "deps.edn")
+                  (file-if-exists "deps.edn")]))
 
 (defn combine-deps-files
   "Given a configuration for config-files and optional config-data, read

@@ -1,4 +1,4 @@
-(defproject viebel/klipse-repl "0.1.9"
+(defproject viebel/klipse-repl "0.2.1"
   :url "https://github.com/viebel/klipse-repl"
   :license {:name "Eclipse Public License"
             :distribution :repo
