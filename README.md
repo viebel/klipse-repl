@@ -19,7 +19,7 @@ If you want to try this really quickly
 and then invoke this:
 
 ```shell
-clojure -Sdeps "{:deps {viebel/klipse-repl {:mvn/version \"0.1.5\"}}}" -m klipse-repl.main
+clojure -Sdeps "{:deps {viebel/klipse-repl {:mvn/version \"0.2.1\"}}}" -m klipse-repl.main
 ```
 
 That should start the Klipse REPL and displays a welcome message like this one:
@@ -37,7 +37,7 @@ If you happen to like it, you will probably find it more convenient to specify a
 ```clojure
 {
  ...
- :aliases {:klipse-repl {:extra-deps {viebel/klipse-repl {:mvn/version "0.1.9"}}
+ :aliases {:klipse-repl {:extra-deps {viebel/klipse-repl {:mvn/version "0.2.1"}}
                          :main-opts  ["-m" "klipse-repl.main"]}}
 }
 ```
@@ -84,7 +84,7 @@ See [rebel-readline](https://github.com/bhauman/rebel-readline) for the full lis
 
 ## Link to online documentation
 
-[clojuredocs.org](https://clojuredocs.org/) is one of the best resources for Clojure beginers as it provides examples of usage of the Clojure forms. The `doc` macro proviced by Klipse REPL adds a link to the entry of the form in `clojuredocs`. For instnance look at the last line of the output of `(doc inc)`:
+[clojuredocs.org](https://clojuredocs.org/) is one of the best resources for Clojure beginers as it provides examples of usage of the Clojure forms. The `doc` macro proviced by Klipse REPL adds a link to the entry of the form in `clojuredocs`. For instance, take a look at the last line of the output of `(doc inc)`:
 
 ~~~clojure
 user=> (doc inc)
