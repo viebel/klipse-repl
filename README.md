@@ -99,7 +99,7 @@ Online doc: https://clojuredocs.org/clojure.core/inc
 
 ## Live dependency update
 
-In a usual REPL, when you want to add dependecies, you have to update your `deps.edn` file and restart the REPL. The Klipse REPL supports hot loading of dependencies in two ways:
+In a usual REPL, when you want to add dependencies, you have to update your `deps.edn` file and restart the REPL. The Klipse REPL supports hot loading of dependencies in two ways:
 
 1. update `deps.edn` and call `(refresh-classpath)` without restarting the REPL.
 2. add dependencies on the fly with `add-deps`.
