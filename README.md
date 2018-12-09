@@ -14,8 +14,7 @@ For instance,
 
 # How to install
 
-If you want to try this really quickly
-[install the Clojure CLI tools](https://clojure.org/guides/getting_started)
+If you want to try the Klipse REPL really quickly, [install the Clojure CLI tools](https://clojure.org/guides/getting_started)
 and then invoke this:
 
 ```shell
