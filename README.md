@@ -51,31 +51,55 @@ because the latter wraps the process with another readline program (rlwrap).
 
 ## def and defn
 
+In a ususal REPL, when you create a `var` or a function, the REPL displays the fully qualified name of the `var` that has been created, for instance `#'user/foo`. This can be a bit confusing for Clojure beginners who have no idea what a namespace is and what is the meaning of the `#'` symbol. In the Klipse REPL:
+
+1. `def` forms return the value of the var
+2. `defn` forms return a message displaying the name of the function and the arguments it expects.
+
+~~~clojure
+user=> (def my-var 42)
+42
+user=> (defn foo [x] (* 42 x))
+Updated function foo ([x])
+~~~
+
 The features of this section can be disabled by the `--no-easy-defs` flag.
 
-1. `def` forms return the value of the var instead of the var itself
-2. `defn` forms return a message saying that a function has been created instead of returning the var of the function created
+## Autocompletion, indentation, coloring etc...
+
+All of the great features of Bruce Hauman's [rebel-readline](https://github.com/bhauman/rebel-readline) are available in this REPL for the simple reason that this REPL is built on top of [rebel-readline](https://github.com/bhauman/rebel-readline).
 
 
 ## Live dependency update
 
-In order to enable the features listed in this section, you need to pass the `--cool-forms flag`.
+In a usual REPL, when you want to add dependecies, you have to update your `deps.edn` file and restart the REPL. The Klipse REPL supports hot loading of dependencies in two ways:
+
+1. update `deps.edn` and call `(refresh-classpath)` without restarting the REPL.
+2. add dependencies on the fly with `add-deps`.
 
 ### refresh-classpath
 
-add dependencies in your global or local `deps.edn` and call `(refresh-classpath)`
+Add dependencies in your global or local `deps.edn` and call `(refresh-classpath)` without restarting the REPL.
 
 ### add-deps 
 
-add one or more dependencies on the fly - following `deps.edn` format:
+Add one or more dependencies on the fly - following `deps.edn` format. Let's say you want to try a cool Clojure library like [cuerdas](https://funcool.github.io/cuerdas/latest/) that provides many string manipulation functions. Instead of modifying your `deps.edn` file and restarting the REPL, you can call `add-deps` inside the Klipse REPL, just like this:
+
 
 ~~~clojure
-user=> (add-deps '{tupelo {:mvn/version "0.9.103"}})
+user=> (add-deps '{funcool/cuerdas {:mvn/version "2.0.5"}})
+nil
+user=> (require '[cuerdas.core :as str])
+nil
+user=> (str/strip-tags "<p>just <b>some</b> text</p>")
+"just some text"
 ~~~
 
-## Classpath
+### Classpath
 
-Display classpath as a collection with `(classpath)`
+Display the classpath as a collection with `(classpath)`
+
+In order to enable the features listed in this section, you need to pass the `--cool-forms flag`.
 
 ## Socket REPL
 
@@ -87,6 +111,7 @@ launching socket repl on port 9876
 Welcome to Klipse REPL (Read-Eval-Print Loop)
 Clojure 1.9.0
 user=> (def a 1)
+1
 ```
 
 And then from another terminal, you connect with `nc` or `telnet`:
@@ -100,10 +125,6 @@ user=> a
 ~~~
 
 Be aware that the state of the REPL is shared between the host and all its remote connections.
-
-## Autocompletion, indentation, coloring etc...
-
-All of the great features of Bruce Hauman's [rebel-readline](https://github.com/bhauman/rebel-readline) are available in this REPL for the simple reason that this REPL is built on top of [rebel-readline](https://github.com/bhauman/rebel-readline).
 
 
 # Credits
