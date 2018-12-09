@@ -3,7 +3,7 @@
   <groupId>viebel</groupId>
   <artifactId>klipse-repl</artifactId>
   <packaging>jar</packaging>
-  <version>0.1.9</version>
+  <version>0.2.1</version>
   <name>klipse-repl</name>
   <description>Beginners friendly Clojure REPL</description>
   <url>https://github.com/viebel/klipse-repl</url>
@@ -18,7 +18,7 @@
     <url>https://github.com/viebel/klipse-repl</url>
     <connection>scm:git:git://github.com/viebel/klipse-repl.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/viebel/klipse-repl.git</developerConnection>
-    <tag>9d488254ec88f763ce8c7aad00bfef2a15399872</tag>
+    <tag>bdb4758713f36dbfef5677c394f99c57b539ccf8</tag>
   </scm>
   <build>
     <sourceDirectory>src</sourceDirectory>
@@ -501,7 +501,7 @@
     <dependency>
       <groupId>viebel</groupId>
       <artifactId>gadjett</artifactId>
-      <version>0.5.7</version>
+      <version>0.5.8</version>
     </dependency>
     <dependency>
       <groupId>args4j</groupId>
