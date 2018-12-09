@@ -12,7 +12,7 @@ For instance,
 
 
 
-## How to install
+# How to install
 
 If you want to try this really quickly
 [install the Clojure CLI tools](https://clojure.org/guides/getting_started)
@@ -49,9 +49,9 @@ because the latter wraps the process with another readline program (rlwrap).
 
 # Features
 
-## def and defn
+## Gentle message when creating variable and functions
 
-In a ususal REPL, when you create a `var` or a function, the REPL displays the fully qualified name of the `var` that has been created, for instance `#'user/foo`. This can be a bit confusing for Clojure beginners who have no idea what a namespace is and what is the meaning of the `#'` symbol. In the Klipse REPL:
+In a ususal REPL, when you create a `var` or a function, the REPL displays the fully qualified name of the `var` that has been created, for instance `#'user/foo`. This can be a bit confusing for Clojure beginners who have no idea what a namespace is and what is the meaning of the `#'` symbol. In the Klipse REPL, we display a gentle message:
 
 1. `def` forms return the value of the var
 2. `defn` forms return a message displaying the name of the function and the arguments it expects.
@@ -77,11 +77,11 @@ In a usual REPL, when you want to add dependecies, you have to update your `deps
 1. update `deps.edn` and call `(refresh-classpath)` without restarting the REPL.
 2. add dependencies on the fly with `add-deps`.
 
-### refresh-classpath
+### Refresh the classpath
 
 Add dependencies in your global or local `deps.edn` and call `(refresh-classpath)` without restarting the REPL.
 
-### add-deps 
+### Add dependencies on the fly 
 
 Add one or more dependencies on the fly - following `deps.edn` format. Let's say you want to try a cool Clojure library like [cuerdas](https://funcool.github.io/cuerdas/latest/) that provides many string manipulation functions. Instead of modifying your `deps.edn` file and restarting the REPL, you can call `add-deps` inside the Klipse REPL, just like this:
 
@@ -95,13 +95,13 @@ user=> (str/strip-tags "<p>just <b>some</b> text</p>")
 "just some text"
 ~~~
 
-### Classpath
+### Display the classpath
 
 Display the classpath as a collection with `(classpath)`
 
 In order to enable the features listed in this section, you need to pass the `--cool-forms flag`.
 
-## Socket REPL
+## Remote connection
 
 You can launch the REPL as a socket REPL server and connect with it remotely
 
