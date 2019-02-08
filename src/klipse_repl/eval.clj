@@ -97,7 +97,10 @@
     (do (println "-------------------------")
         (println "Online doc:" url))))
 
-(defmacro doc [var]
+(defmacro doc
+  "Prints documentation for a var or special form given its name,
+  or for a spec if given a keyword"
+  [var]
   `(do (clojure.repl/doc ~var)
        (online-doc ~(str var))))
 

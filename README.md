@@ -18,7 +18,7 @@ If you want to try the Klipse REPL really quickly, [install the Clojure CLI tool
 and then invoke this:
 
 ```shell
-clojure -Sdeps "{:deps {viebel/klipse-repl {:mvn/version \"0.2.1\"}}}" -m klipse-repl.main
+clojure -Sdeps "{:deps {viebel/klipse-repl {:mvn/version \"0.2.2\"}}}" -m klipse-repl.main
 ```
 
 That should start the Klipse REPL and displays a welcome message like this one:
@@ -36,7 +36,7 @@ If you happen to like it, you will probably find it more convenient to specify a
 ```clojure
 {
  ...
- :aliases {:klipse-repl {:extra-deps {viebel/klipse-repl {:mvn/version "0.2.1"}}
+ :aliases {:klipse-repl {:extra-deps {viebel/klipse-repl {:mvn/version "0.2.2"}}
                          :main-opts  ["-m" "klipse-repl.main"]}}
 }
 ```
