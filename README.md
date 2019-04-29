@@ -107,6 +107,16 @@ In a usual REPL, when you want to add dependencies, you have to update your `dep
 
 Add dependencies in your global or local `deps.edn` and call `(refresh-classpath)` without restarting the REPL.
 
+### Display the classpath
+
+Display the classpath as a collection with `(classpath)`
+
+In order to enable the features listed in this section, you need to pass the `--cool-forms flag`. For example:
+
+```shell
+clojure -Sdeps "{:deps {viebel/klipse-repl {:mvn/version \"0.2.2\"}}}" -m klipse-repl.main --cool-forms
+```
+
 ### Add dependencies on the fly 
 
 Add one or more dependencies on the fly - following `deps.edn` format. Let's say you want to try a cool Clojure library like [cuerdas](https://funcool.github.io/cuerdas/latest/) that provides many string manipulation functions. Instead of modifying your `deps.edn` file and restarting the REPL, you can call `add-deps` inside the Klipse REPL, just like this:
@@ -120,12 +130,6 @@ nil
 user=> (str/strip-tags "<p>just <b>some</b> text</p>")
 "just some text"
 ~~~
-
-### Display the classpath
-
-Display the classpath as a collection with `(classpath)`
-
-In order to enable the features listed in this section, you need to pass the `--cool-forms flag`.
 
 ## Remote connection
 
