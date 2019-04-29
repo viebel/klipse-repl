@@ -103,19 +103,19 @@ In a usual REPL, when you want to add dependencies, you have to update your `dep
 1. update `deps.edn` and call `(refresh-classpath)` without restarting the REPL.
 2. add dependencies on the fly with `add-deps`.
 
+In order to enable the features listed in this section, you need to pass the `--cool-forms flag`, like this:
+
+```shell
+clojure -A:klipse-repl --cool-forms
+```
+
 ### Refresh the classpath
 
 Add dependencies in your global or local `deps.edn` and call `(refresh-classpath)` without restarting the REPL.
 
 ### Display the classpath
 
-Display the classpath as a collection with `(classpath)`
-
-In order to enable the features listed in this section, you need to pass the `--cool-forms flag`. For example:
-
-```shell
-clojure -Sdeps "{:deps {viebel/klipse-repl {:mvn/version \"0.2.2\"}}}" -m klipse-repl.main --cool-forms
-```
+Display the classpath as a collection with `(classpath)`.
 
 ### Add dependencies on the fly 
 
