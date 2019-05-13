@@ -15,7 +15,7 @@
                                 :name 'socket-repl
                                 :accept 'klipse-repl.basic/create-repl}))
 
-(defn create-repl* [{:keys [easy-defs] :as opts} prompt?]
+(defn create-repl* [{:keys [easy-defs print-length] :as opts} prompt?]
   (let [args {:init (fn []
                       (println "Welcome to Klipse REPL (Read-Eval-Print Loop)")
                       (println "Clojure" (clojure-version))
@@ -23,7 +23,8 @@
               :eval (fn [x]
                       (if easy-defs ((eval `custom-eval) x) (eval x)))
               :prompt (when-not prompt? (fn []))}]
-    (apply-with-map clojure-main/repl args)))
+    (binding [*print-length* print-length]
+      (apply-with-map clojure-main/repl args))))
 
 (defn create-repl [{:keys [port rebel] :as opts}]
   (when port

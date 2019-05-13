@@ -10,6 +10,10 @@
    [nil "--cool-forms"]
    [nil "--[no-]rebel" "enable/disable rebel readline"
     :default true]
+   [nil "--print-length LENGTH" "how many items of each collection the REPL will print"
+    :parse-fn #(Integer/parseInt %)
+    :validate [#(<= 0 %) "Must be a non negative number"]
+    :default 1000]
    [nil "--[no-]easy-defs" "enable/disable easy def feedback"
     :default true]
    ["-p" "--port PORT" "Port Number for the socket repl"

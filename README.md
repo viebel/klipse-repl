@@ -18,7 +18,7 @@ If you want to try the Klipse REPL really quickly, [install the Clojure CLI tool
 and then invoke this:
 
 ```shell
-clojure -Sdeps "{:deps {viebel/klipse-repl {:mvn/version \"0.2.2\"}}}" -m klipse-repl.main
+clojure -Sdeps "{:deps {viebel/klipse-repl {:mvn/version \"0.2.3\"}}}" -m klipse-repl.main
 ```
 
 That should start the Klipse REPL and displays a welcome message like this one:
@@ -36,7 +36,7 @@ If you happen to like it, you will probably find it more convenient to specify a
 ```clojure
 {
  ...
- :aliases {:klipse-repl {:extra-deps {viebel/klipse-repl {:mvn/version "0.2.2"}}
+ :aliases {:klipse-repl {:extra-deps {viebel/klipse-repl {:mvn/version "0.2.3"}}
                          :main-opts  ["-m" "klipse-repl.main"]}}
 }
 ```
@@ -54,6 +54,23 @@ Note that I am using the `clojure` command and not the `clj` command because the
 
 
 # Features
+
+## Prevents terminal hang on infinite sequences
+
+It occurs sometimes, that you type in the REPL an expression that generated sequence like `(range)`. In the usual REPL, it will display an infinite sequence of numbers on the screen until you quit the REPL. What a frustration! Now you have to start your REPL session over again.
+
+In the Klipse REPL, we limit to 1000 the number of items of each collection that are displayed. It prevents the REPL to hang when you evaluate an infinite sequence like `(range)`.
+
+In case, you need a different limit for the number of items to be displayed, you can pass your number to the command line arguments `--print-length`. For instance, to limit it to 10, you run:
+
+```shell
+> clojure -A:klipse-repl --print-length 10
+Welcome to Klipse REPL (Read-Eval-Print Loop)
+Clojure 1.10.0-beta3
+user=> (range)
+(0 1 2 3 4 5 6 7 8 9 ...)
+```
+
 
 ## Gentle message when creating variable and functions
 
