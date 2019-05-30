@@ -3,7 +3,7 @@
 
 # Rationale
 
-Provide a REPL that is super-friendly to beginners without bothering them with details that are hard to grasp when you are a Clojure beginner.
+Provide a REPL that is super-friendly to beginners without bothering them with details that are hard to grasp when you are a Clojure beginner. The motivation for beginner friendly REPL was born during the writing of the book [Get Programming with Clojure](https://www.getprogrammingwithclojure.com/).
 
 For instance,
 
